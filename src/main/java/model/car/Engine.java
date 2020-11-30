@@ -17,8 +17,8 @@ public class Engine {
     }
 
     public Engine(int power, float capacity, String type) {
-        this.power = power;
-        this.capacity = capacity;
+        this.power = power > 0 ? power : 1;
+        this.capacity = capacity > 0 ? capacity : 0.1f;
         this.type = type;
     }
 
@@ -35,7 +35,8 @@ public class Engine {
     }
 
     public void setPower(int power) {
-        this.power = power;
+       if(power > 0) this.power = power;
+       else return;
     }
 
     public float getCapacity() {
@@ -43,7 +44,8 @@ public class Engine {
     }
 
     public void setCapacity(float capacity) {
-        this.capacity = capacity;
+       if(capacity > 0) this.capacity = capacity;
+       else return;
     }
 
     public String getType() {
